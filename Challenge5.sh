@@ -7,9 +7,6 @@
 # # This script automates the process of backing up log files.
 # It compresses, timestamps, and stores backup files for better management.
 
-
-#!/bin/bash
-
 # Backup directory
 backup_dir="/var/log/backups"
 
