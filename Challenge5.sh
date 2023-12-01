@@ -2,7 +2,7 @@
 
 # Script Name:                  Ops Challenge 2 
 # Author:                       Rodolfo Gonzalez
-# Date of latest revision:      11/30/2023
+# Date of latest revision:      12/01/2023
 # Purpose:                      
 # # This script automates the process of backing up log files.
 # It compresses, timestamps, and stores backup files for better management.
