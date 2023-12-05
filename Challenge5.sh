@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Script Name:                  Ops Challenge 2 
 # Author:                       Rodolfo Gonzalez
 # Date of latest revision:      12/01/2023

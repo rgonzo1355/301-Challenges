@@ -1,33 +1,37 @@
-# Author:       Rodolfo Gonzalez
-# Script        301 Ops Challenge 6
-# Purpose:      See python Example
-# Why           New Language
+# Script Name:                  Ops Challenge 6 
+# Author:                       Rodolfo Gonzalez
+# Date of latest revision:      12/04/2023
+# Purpose: To learn for a career in cyber security. Today, you will be executing a Linux terminal commands from within a Python script.  
 
-# Variables
+import os
 
-# user = "Roger"
+# Declare and reference three variables
+name = "John"
+age = 25
+location = "CityX"
 
-# Output the initial value of User
-# print(user)
+# Print variables using the print() function
+print("Name:", name)
+print("Age:", age)
+print("Location:", location)
 
-# Input from the user
-# user = input("Please, enter your name: ")
+# Execute bash commands using os.popen() and capture the results
+print("\nExecuting bash commands:")
 
-# Output the updated value of user
+try:
+    # Execute 'whoami' command and capture the output
+    whoami_output = os.popen('whoami').read()
+    print("Current user:", whoami_output.strip())
 
-print(user)
+    # Execute 'ip a' command and capture the output
+    ip_address_output = os.popen('ip a').read()
+    print("IP address information:")
+    print(ip_address_output)
 
+    # Execute 'lshw -short' command and capture the output
+    hardware_info_output = os.popen('lshw -short').read()
+    print("Hardware information:")
+    print(hardware_info_output)
 
-#Inports
-os.system("ls ipconfig")
-
-
-# Bash Things in Python
-
-# Functions
-def my_function():
-    os.system("ipconfig")
-
-my_function()
-
-# Strech: If statement
+except Exception as e:
+    print("Error executing bash commands:", e)
