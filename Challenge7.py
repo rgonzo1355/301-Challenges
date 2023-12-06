@@ -3,6 +3,7 @@
 # Date          12-5-23
 # Purpose:      Create a Python script that generates all directories, sub-directories and files for a user-provided directory path.
 # Resources: https://chat.openai.com/share/04cb2776-335b-40a0-bf84-d1e3576a9cf3 
+
 # Import libraries
 import os
 
