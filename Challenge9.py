@@ -16,7 +16,8 @@ Greater than: a > b
 Greater than or equal to: a >= b
 Create an if statement using a logical conditional of your choice and include elif keyword that executes when other conditions are not met.
 
-Create an if statement that includes both elif and else to execute when both if and elif are not met."""
+Create an if statement that includes both elif and else to execute when both if and elif are not met.
+Resources: https://chat.openai.com/share/7b3b9e0d-1061-47b7-b4e2-216253f1b7fd https://www.youtube.com/watch?v=rfscVS0vtbw"""
 
 # Fitness Recommendations
 
