@@ -70,4 +70,5 @@ if __name__ == "__main__":
 The getattr function retrieves the value of the specified attribute on the object.
 The dir(cpu_times) function returns a list of all attributes and methods of the cpu_times object.
 The callable function checks if the specified attribute is a function or method.
-The if not attr.startswith("__") condition excludes attributes starting with double underscores, which are typically internal or private attributes."""
+The if not attr.startswith("__") condition excludes attributes starting with double underscores, which are typically internal or private attributes.
+Resources: https://chat.openai.com/share/4fec93b9-09a4-43c1-87df-5f00ed8e05b9 """
