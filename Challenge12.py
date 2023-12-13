@@ -1,90 +1,45 @@
 #!/usr/bin/python3
 # Author:       Rodolfo Gonzalez
 # Date:         12-12-23
-import requests
-
-
-def translate_status_code(status_code):
-    """
-    Translates HTTP status code to plain terms.
-    """
-    status_codes = {
-        200: "OK",
-        201: "Created",
-        204: "No Content",
-        400: "Bad Request",
-        401: "Unauthorized",
-        403: "Forbidden",
-        404: "Not Found",
-        405: "Method Not Allowed",
-        500: "Internal Server Error",
-    }
-    return status_codes.get(status_code, "Unknown Status Code")
-
-
-def validate_url(url):
-    """
-    Checks if the URL is valid.
-    """
-    if not url.startswith("http://") and not url.startswith("https://"):
-        raise ValueError("Invalid URL format. Please provide a valid URL.")
-
-
-def validate_method(method):
-    """
-    Checks if the HTTP method is valid.
-    """
-    valid_methods = {"GET", "POST", "PUT", "DELETE", "HEAD", "PATCH", "OPTIONS"}
-    if method not in valid_methods:
-        raise ValueError(f"Invalid HTTP method: {method}. Available methods: {valid_methods}")
-
 
 def main():
-    # Prompt user for URL and HTTP Method
+    """
+    This script allows users to choose a predefined URL and perform an HTTP request.
+    """
+
+    # Define predefined URLs with descriptive names and URLs
+    predefined_urls = {
+        1: ("Example Domain - This is a basic example website.", "https://www.example.com"),
+        2: ("Google Search - The world's most popular search engine.", "https://www.google.com"),
+        3: ("GitHub - A popular code hosting platform for developers.", "https://www.github.com"),
+    }
+
+    # Display menu with numbered options and descriptions
+    print("Choose a predefined URL:")
+    for index, (name, url) in enumerate(predefined_urls.items()):
+        print(f"{index + 1}: {name}")
+        print(f"\t- {url}")
+
     try:
-        url = input("Enter the destination URL: ")
-        validate_url(url)
-        http_method = input(
-            "Choose HTTP Method (GET, POST, PUT, DELETE, HEAD, PATCH, OPTIONS): "
-        ).upper()
-        validate_method(http_method)
-    except ValueError as e:
-        print(f"Error: {e}")
+        choice = int(input("Enter your choice: "))
+    except ValueError:
+        print("Invalid choice. Please enter a valid number.")
         return
 
-    # Confirm request with user
-    print(f"\nSending {http_method} request to: {url}")
-    confirmation = input("Do you want to proceed? (yes/no): ").lower()
-
-    if confirmation != "yes":
-        print("Operation aborted.")
+    # Validate chosen URL and extract URL based on the choice
+    if choice not in range(1, len(predefined_urls) + 1):
+        print("Invalid choice. Please enter a number within the available range.")
         return
 
-    # Perform HTTP request and handle exceptions
-    try:
-        # Handle methods with request body
-        if http_method in {"POST", "PUT", "PATCH"}:
-            request_body = input("Enter request body (optional): ")
-            response = requests.request(http_method, url, data=request_body)
-        else:
-            response = requests.request(http_method, url)
+    url, description = predefined_urls[choice - 1]
 
-        response.raise_for_status()
+    # TODO: Implement further functionality like choosing HTTP method, handling requests and responses, etc.
 
-        # Print response information
-        print(f"\nResponse Status: {translate_status_code(response.status_code)}")
-        print("Response Headers:")
-        for header, value in response.headers.items():
-            print(f"{header}: {value}")
+    print(f"You chose: {description} ({url})")
 
-        # Print response content if available
-        if response.content:
-            print("\nResponse Content:")
-            print(response.content.decode())
-
-    except requests.exceptions.RequestException as e:
-        print(f"Error: {e}")
+    # ...
 
 
 if __name__ == "__main__":
     main()
+
