@@ -5,6 +5,7 @@
 def main():
     """
     This script allows users to choose a predefined URL and perform an HTTP request.
+    Resource: https://chat.openai.com/c/fe762773-aa38-498a-ac11-e9c3445a58ed  
     """
 
     # Define predefined URLs with descriptive names and URLs
